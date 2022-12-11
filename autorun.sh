@@ -8,3 +8,4 @@ run() {
 
 run "lxqt-policykit-agent"
 run "picom"
+run "nm-applet"
