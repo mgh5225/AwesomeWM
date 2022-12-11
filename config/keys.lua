@@ -22,10 +22,20 @@ awful.keyboard.append_global_keybindings({
         { description = "quit awesome", group = "awesome" }),
     awful.key({ Modkey, }, "Return", function() awful.spawn(Terminal) end,
         { description = "open a terminal", group = "launcher" }),
-    awful.key({ Modkey }, "r", function() awful.spawn("rofi -show run") end,
+    awful.key({ Modkey }, "r", function() awful.spawn("rofi -show drun") end,
+        { description = "run prompt", group = "launcher" }),
+    awful.key({ Modkey }, "Tab", function() awful.spawn("rofi -show window") end,
         { description = "run prompt", group = "launcher" }),
     awful.key({ Modkey, }, "space", function() keyboard.switch_next() end,
-        { description = "select next", group = "layout" }),
+        { description = "select next layout", group = "keyboard" }),
+    awful.key({}, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end,
+        { description = "play", group = "Media Player" }),
+    awful.key({}, "XF86AudioStop", function() awful.spawn("playerctl stop") end,
+        { description = "stop", group = "Media Player" }),
+    awful.key({}, "XF86AudioPrev", function() awful.spawn("playerctl previous") end,
+        { description = "prev", group = "Media Player" }),
+    awful.key({}, "XF86AudioNext", function() awful.spawn("playerctl next") end,
+        { description = "next", group = "Media Player" }),
 })
 
 -- Tags related keybindings
