@@ -9,7 +9,7 @@ Mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
     menu = menu.mymainmenu })
 
 -- Keyboard map indicator and switcher
-Mykeyboardlayout = awful.widget.keyboardlayout()
+local keyboard = require("widgets.keyboard")
 
 -- Create a textclock widget
 Mytextclock = wibox.widget.textclock()
@@ -29,7 +29,7 @@ return function(s)
             s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                Mykeyboardlayout,
+                keyboard.widget,
                 wibox.widget.systray(),
                 Mytextclock,
                 s.mylayoutbox,

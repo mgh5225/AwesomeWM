@@ -5,6 +5,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 local menu = require("widgets.menu")
+local keyboard = require("widgets.keyboard")
+
 
 -- {{{ Key bindings
 
@@ -22,6 +24,8 @@ awful.keyboard.append_global_keybindings({
         { description = "open a terminal", group = "launcher" }),
     awful.key({ Modkey }, "r", function() awful.spawn("rofi -show run") end,
         { description = "run prompt", group = "launcher" }),
+    awful.key({ Modkey, }, "space", function() keyboard.switch_next() end,
+        { description = "select next", group = "layout" }),
 })
 
 -- Tags related keybindings
@@ -91,10 +95,6 @@ awful.keyboard.append_global_keybindings({
         { description = "increase the number of columns", group = "layout" }),
     awful.key({ Modkey, "Control" }, "l", function() awful.tag.incncol(-1, nil, true) end,
         { description = "decrease the number of columns", group = "layout" }),
-    awful.key({ Modkey, }, "space", function() awful.layout.inc(1) end,
-        { description = "select next", group = "layout" }),
-    awful.key({ Modkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
-        { description = "select previous", group = "layout" }),
 })
 
 
