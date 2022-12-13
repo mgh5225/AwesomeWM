@@ -5,7 +5,6 @@ pcall(require, "luarocks.loader")
 
 -- Standard awesome library
 local gears = require("gears")
-local awful = require("awful")
 local beautiful = require("beautiful")
 
 require("awful.autofocus")
@@ -31,5 +30,3 @@ Modkey = "Mod4"
 
 require("widgets")
 require("config")
-
-awful.spawn.with_shell(gears.filesystem.get_configuration_dir() .. "autorun.sh")
