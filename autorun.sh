@@ -6,9 +6,10 @@ run() {
   fi
 }
 
-run "lxqt-policykit-agent"
+run "lxpolkit"
 run "picom"
 run "nm-applet"
 run "polychromatic-tray-applet"
-run "kmix"
+run "pasystray"
 run "playerctld daemon"
+run "greenclip daemon"
