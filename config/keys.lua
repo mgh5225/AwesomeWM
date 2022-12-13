@@ -37,14 +37,24 @@ awful.keyboard.append_global_keybindings({
         { description = "run prompt", group = "launcher" }),
     awful.key({ Modkey, }, "space", function() keyboard.switch_next() end,
         { description = "select next layout", group = "keyboard" }),
+})
+
+-- Audio related keybindings
+awful.keyboard.append_global_keybindings({
     awful.key({}, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end,
-        { description = "play", group = "Media Player" }),
+        { description = "play/pause", group = "Media Player" }),
     awful.key({}, "XF86AudioStop", function() awful.spawn("playerctl stop") end,
         { description = "stop", group = "Media Player" }),
     awful.key({}, "XF86AudioPrev", function() awful.spawn("playerctl previous") end,
         { description = "prev", group = "Media Player" }),
     awful.key({}, "XF86AudioNext", function() awful.spawn("playerctl next") end,
         { description = "next", group = "Media Player" }),
+    awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("amixer set Master 5%+") end,
+        { description = "raise volume", group = "Media Player" }),
+    awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("amixer set Master 5%-") end,
+        { description = "lower volume", group = "Media Player" }),
+    awful.key({}, "XF86AudioMute", function() awful.spawn("amixer set Master toggle") end,
+        { description = "mute audio", group = "Media Player" }),
 })
 
 -- Tags related keybindings
