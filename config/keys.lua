@@ -32,6 +32,10 @@ awful.keyboard.append_global_keybindings({
         { description = "run prompt", group = "launcher" }),
     awful.key({ Modkey }, "Tab", function() awful.spawn("rofi -show window") end,
         { description = "run prompt", group = "launcher" }),
+    awful.key({ Modkey }, "p",
+        function() awful.spawn.with_shell("rofi -show p -modi p:\"$HOME/.config/rofi/rofi-power-menu --no-symbols\"") end
+        ,
+        { description = "run power menu", group = "launcher" }),
     awful.key({ Modkey }, "c",
         function() awful.spawn("rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'") end,
         { description = "run prompt", group = "launcher" }),
