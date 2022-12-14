@@ -30,8 +30,6 @@ awful.keyboard.append_global_keybindings({
         { description = "open file manager", group = "launcher" }),
     awful.key({ Modkey }, "r", function() awful.spawn("rofi -show drun") end,
         { description = "run prompt", group = "launcher" }),
-    awful.key({ Modkey }, "Tab", function() awful.spawn("rofi -show window") end,
-        { description = "run prompt", group = "launcher" }),
     awful.key({ Modkey }, "p",
         function() awful.spawn.with_shell("rofi -show p -modi p:\"$HOME/.config/rofi/rofi-power-menu --no-symbols\"") end
         ,
