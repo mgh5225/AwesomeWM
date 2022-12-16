@@ -28,11 +28,9 @@ awful.keyboard.append_global_keybindings({
         { description = "take a screenshot", group = "launcher" }),
     awful.key({ Modkey }, "e", function() awful.spawn(FileManager) end,
         { description = "open file manager", group = "launcher" }),
-    awful.key({ Modkey }, "r", function() awful.spawn("rofi -show drun") end,
+    awful.key({ Modkey }, "r", function() awful.spawn(Rofi_luancher) end,
         { description = "run prompt", group = "launcher" }),
-    awful.key({ Modkey }, "p",
-        function() awful.spawn.with_shell("rofi -show p -modi p:\"$HOME/.config/rofi/rofi-power-menu --no-symbols\"") end
-        ,
+    awful.key({ Modkey }, "p", function() awful.spawn.with_shell(Rofi_powermenu) end,
         { description = "run power menu", group = "launcher" }),
     awful.key({ Modkey }, "c",
         function() awful.spawn("rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'") end,
