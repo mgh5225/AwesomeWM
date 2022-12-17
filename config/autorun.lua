@@ -23,7 +23,6 @@ end
 
 
 _run("picom", "picom", _types.RUNNING)
-_run("mpd", "mpd", _types.PGREP)
 _run("lxpolkit", "lxpolkit", _types.PS)
 _run("nm-applet", "nm-applet", _types.PGREP)
 _run("polychromatic-tray-applet", "polychromatic-tray-applet", _types.PGREP)
