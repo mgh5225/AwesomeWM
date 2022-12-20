@@ -22,10 +22,14 @@ awful.keyboard.append_global_keybindings({
         { description = "quit awesome", group = "awesome" }),
     awful.key({ Modkey, }, "Return", function() awful.spawn(Terminal) end,
         { description = "open a terminal", group = "launcher" }),
-    awful.key({}, "Print", function() awful.spawn.with_shell("scrot $HOME/Pictures/%Y-%m-%d_%H%M%S.png") end,
+    awful.key({}, "Print", function() awful.spawn.with_shell(Screenshot_whole) end,
         { description = "take a screenshot", group = "launcher" }),
-    awful.key({ Modkey }, "Print", function() awful.spawn.with_shell("scrot -s $HOME/Pictures/%Y-%m-%d_%H%M%S.png") end,
+    awful.key({ "Shift", }, "Print", function() awful.spawn.with_shell(Screenshot_whole_clipboard) end,
+        { description = "take a screenshot and move it to clipboard", group = "launcher" }),
+    awful.key({ Modkey }, "Print", function() awful.spawn.with_shell(Screenshot_selection) end,
         { description = "take a screenshot", group = "launcher" }),
+    awful.key({ Modkey, "Shift" }, "Print", function() awful.spawn.with_shell(Screenshot_selection_clipboard) end,
+        { description = "take a screenshot and move it to clipboard", group = "launcher" }),
     awful.key({ Modkey }, "e", function() awful.spawn(FileManager) end,
         { description = "open file manager", group = "launcher" }),
     awful.key({ Modkey }, "r", function() awful.spawn(Rofi_luancher) end,
@@ -33,7 +37,7 @@ awful.keyboard.append_global_keybindings({
     awful.key({ Modkey }, "p", function() awful.spawn.with_shell(Rofi_powermenu) end,
         { description = "run power menu", group = "launcher" }),
     awful.key({ Modkey }, "c",
-        function() awful.spawn("rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'") end,
+        function() awful.spawn(Rofi_clipboard) end,
         { description = "run prompt", group = "launcher" }),
     awful.key({ Modkey, }, "space", function() keyboard.switch_next() end,
         { description = "select next layout", group = "keyboard" }),
@@ -71,13 +75,13 @@ awful.keyboard.append_global_keybindings({
 awful.keyboard.append_global_keybindings({
     awful.key({ Modkey, }, "j",
         function()
-            awful.client.focus.byidx(1)
+            awful.client.focus.byidx(-1)
         end,
         { description = "focus next by index", group = "client" }
     ),
     awful.key({ Modkey, }, "k",
         function()
-            awful.client.focus.byidx(-1)
+            awful.client.focus.byidx(1)
         end,
         { description = "focus previous by index", group = "client" }
     ),

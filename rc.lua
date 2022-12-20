@@ -20,8 +20,16 @@ Terminal = "kitty"
 Editor = os.getenv("EDITOR") or "nvim"
 Editor_cmd = Terminal .. " -e " .. Editor
 FileManager = "thunar"
+
 Rofi_luancher = os.getenv("HOME") .. "/.config/rofi/launchers/type-6/launcher.sh"
 Rofi_powermenu = os.getenv("HOME") .. "/.config/rofi/powermenu/type-6/powermenu.sh"
+Rofi_clipboard = "rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'"
+
+Screenshot_selection = "scrot -s $HOME/Pictures/%Y-%m-%d_%H%M%S.png"
+Screenshot_whole = "scrot $HOME/Pictures/%Y-%m-%d_%H%M%S.png"
+Screenshot_selection_clipboard = "scrot -s /tmp/%Y-%m-%d_%H%M%S.png -e 'xclip -selection clipboard -target image/png -i $f && rm $f'"
+Screenshot_whole_clipboard = "scrot /tmp/%Y-%m-%d_%H%M%S.png -e 'xclip -selection clipboard -target image/png -i $f && rm $f'"
+
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
